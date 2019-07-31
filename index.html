@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cloudonix WebSDK Widget Demo</title>
+    <link rel="stylesheet" href="fontpackage.css">
+    <style>
+        .cxWidget {
+            left: 0px;
+            right: auto;
+            border: 0px none;
+            position: fixed;
+            width: 115px;
+            height: 115px;
+            max-width: 330px;
+            max-height: 610px;
+            overflow: hidden;
+            bottom: 0px;
+            top: auto;
+            left: 0px;
+            right: auto;
+            z-index: 99999999 !important;
+        }
+
+        .cxWidgetContent {
+            height: 100%;
+            width: 100%;
+            border: 0px none;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .ttip {
+            border-bottom: 1px solid #00cccc;
+            color: red;
+            font-size: 18px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div style="overflow-x:auto;">
+    <table>
+        <tr>
+            <td>#</td>
+            <td>Name</td>
+            <td>Address</td>
+            <td>Phone #1</td>
+            <td>Phone #2</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>John Doe</td>
+            <td>No mans' land 4, NY</td>
+            <td>
+                <a onclick="openDialerWindow('18054101010');"><span class="icon-phone-square"></span></a>
+                &nbsp;+18054101010
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Jane Doe</td>
+            <td>No mans' land 4, NY</td>
+            <td>
+                <a onclick="openDialerWindow('your.destination.here');"><span class="icon-phone-square"></span></a>
+                &nbsp;+12127773456
+            </td>
+            <td><a onclick="openDialerWindow('your.destination.here');"><span class="icon-phone-square"></span></a>
+                &nbsp;+12127777777
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    function openDialerWindow(destination) {
+        window.open('cxWebPhone.html?d=' + destination, '_dialer', 'height=578px,width=380px,resizeable=no,menubar=no,location=no,scrollbars=no,status=no,toolbar=no,titlebar=no,top=0,left=0');
+    }
+</script>
+</body>
+</html>

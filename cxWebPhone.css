@@ -1,0 +1,64 @@
+.pad-10 {
+    padding: 10px 10px 10px 10px;
+}
+
+.pad-20 {
+    padding: 20px 20px 20px 20px;
+}
+
+.circle {
+    border-radius: 50%;
+    height: 64px;
+    width: 64px;
+    border: 1px solid #000000;
+}
+
+.circle-button {
+    background-color: transparent;
+}
+
+.circle-button:hover {
+    background-color: #c7c7c7;
+}
+
+.call-button {
+    background-color: #006d64;
+    opacity: 0.8;
+}
+
+.call-button:hover {
+    opacity: 1;
+}
+
+.color-white {
+    color: #ffffff;
+}
+
+.button-on {
+    color: #FFFFFF;
+    background-color: #00cb0e;
+}
+
+.button-off {
+    color: #FFFFFF;
+    background-color: #cb1b00;
+}
+
+.view-button {
+    border-radius: 5px;
+    height: 48px;
+    width: 48px;
+    line-height: 64px;
+    border: 1px solid transparent;
+    background-color: transparent;
+}
+
+.view-button:hover {
+    background-color: #c7c7c7;
+}
+
+.view-destination {
+    height: 120px;
+    max-height: 120px;
+    line-height: 60px;
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cloudonix WebPhone Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="fontpackage.css">
+    <link rel="stylesheet" href="gh-fork-ribbon.css">
+    <link rel="stylesheet" href="cxWebPhone.css">
+    <script>
+        var myCloudonixDomain = 'your.cloudonix.namespace';
+        var myCloudonixSubscriber = 'your.namespace.subscriber';
+        var myCloudonixPassword = 'your.namespace.subscriber.password';
+    </script>
+</head>
+<body style="background-color: #006962; max-width: 380px; max-height: 670px;">
+<div id="cxWebPhone" class="container-fluid align-top">
+    <div class="row mr-0 ml-0 pad-20">
+        <div class="col-12 pad-20" style="border-radius: 35px; background-color: #ffffff;">
+            <a class="github-fork-ribbon" target="_top" href="https://github.com/cloudonix/cloudonix-webrtc-widget-demo"
+               data-ribbon="&#xf09b; GitHub" title="GitHub">GitHub</a>
+            <!-- Phone Dialer -->
+            <div id="cxWebPhoneKeypad">
+                <div class="row position-static view-destination">
+                    <div class="col-12 text-center">
+                        <ul class="list-unstyled">
+                            <li>
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        <div id="cxDestination" name="cxDestination"></div>
+                                    </li>
+                                    <li class="list-inline-item"><a id="btnDeleteDst"
+                                                                    name="btnDeleteDst"
+                                                                    style="display: none;"
+                                                                    onclick="keypadPress('X');"
+                                                                    class="icon-times"></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div id="cxDestinationInfo" name="cxDestinationInfo"
+                                     class="badge badge-pill badge-info"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row position-static pb-2">
+                    <div class="col-4 text-center">
+                        <a class="btn circle circle-button align-middle" onclick="keypadPress('1');"><span
+                                class="h1">1</span></a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <a class="btn circle circle-button align-middle" onclick="keypadPress('2');"><span
+                                class="h1">2</span></a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <a class="btn circle circle-button align-middle" onclick="keypadPress('3');"><span
+                                class="h1">3</span></a>
+                    </div>
+                </div>
+                <div class="row position-static pb-2">
+                    <div class="col-4 text-center">
+                        <a class="btn circle circle-button align-middle" onclick="keypadPress('4');"><span
+                                class="h1">4</span></a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <a class="btn circle circle-button align-middle" onclick="keypadPress('5');"><span
+                                class="h1">5</span></a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <a class="btn circle circle-button align-middle" onclick="keypadPress('6');"><span
+                                class="h1">6</span></a>
+                    </div>
+                </div>
+                <div class="row position-static pb-2">
+                    <div class="col-4 text-center">
+                        <a class="btn circle circle-button align-middle" onclick="keypadPress('7');"><span
+                                class="h1">7</span></a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <a class="btn circle circle-button align-middle" onclick="keypadPress('8');"><span
+                                class="h1">8</span></a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <a class="btn circle circle-button align-middle" onclick="keypadPress('9');"><span
+                                class="h1">9</span></a>
+                    </div>
+                </div>
+                <div class="row position-static pb-2">
+                    <div class="col-4 text-center">
+                        <a class="btn circle circle-button align-middle" onclick="keypadPress('*');"><span
+                                class="h1">*</span></a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <a class="btn circle circle-button align-middle" onclick="keypadPress('0');"><span
+                                class="h1">0</span></a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <a class="btn circle circle-button align-middle" onclick="keypadPress('#');"><span
+                                class="h1">#</span></a>
+                    </div>
+                </div>
+                <div class="row position-static pb-1">
+                    <div class="col-4 text-center">
+                        <a name="btnMute" id="btnMute" class="btn circle align-middle button-on" style="display: none;"
+                           onclick="startCall();">
+                            <span name="btnMuteIcon" id="btnMuteIcon" class="icon-microphone color-white h1"></span></a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <a name="btnCall" id="btnCall" class="btn circle align-middle call-button"
+                           onclick="startCall();">
+                            <span name="btnCallIcon" id="btnCallIcon" class="icon-phone color-white h1"></span></a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <a name="btnHold" id="btnHold" class="btn circle align-middle button-on" style="display: none;"
+                           onclick="startCall();">
+                            <span name="btnHoldIcon" id="btnHoldIcon" class="icon-play color-white h1"></span></a>
+                    </div>
+                </div>
+            </div>
+            <!-- /Phone Dialer -->
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://webinc.cloudonix.io/js/cxweb/v1.1/js/cloudonix.min.js"></script>
+<script type="text/javascript" src="cxWebPhone.js"></script>
+</body>
+</html>
